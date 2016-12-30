@@ -1,0 +1,1 @@
+﻿<%@ Application Inherits="Wilderness.Game.Web.Startup.Global" Language="C#" %>

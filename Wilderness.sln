@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wilderness.Game.Core", "Wilderness.Game.Core\Wilderness.Game.Core.csproj", "{898EF612-6EDF-48AC-B042-E24B88C60AE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wilderness.Game.Web.Host", "Wilderness.Game.Web.Host\Wilderness.Game.Web.Host.csproj", "{623D1AA5-5141-473E-88A9-AE4801AD1DC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wilderness.Game.Web", "Wilderness.Game.Web\Wilderness.Game.Web.csproj", "{B680AA64-3BE2-4C1B-BA60-09EA38CDA96A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wilderness.Game.Core.Common", "Wilderness.Game.Core.Common\Wilderness.Game.Core.Common.csproj", "{9BE8FB3A-5678-4161-9684-453ECA2413BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wilderness.Game.Service", "Wilderness.Game.Service\Wilderness.Game.Service.csproj", "{44FCAC07-BEB5-44FC-833E-DC56275DF257}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{898EF612-6EDF-48AC-B042-E24B88C60AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{898EF612-6EDF-48AC-B042-E24B88C60AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{898EF612-6EDF-48AC-B042-E24B88C60AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{898EF612-6EDF-48AC-B042-E24B88C60AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{623D1AA5-5141-473E-88A9-AE4801AD1DC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{623D1AA5-5141-473E-88A9-AE4801AD1DC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{623D1AA5-5141-473E-88A9-AE4801AD1DC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{623D1AA5-5141-473E-88A9-AE4801AD1DC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B680AA64-3BE2-4C1B-BA60-09EA38CDA96A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B680AA64-3BE2-4C1B-BA60-09EA38CDA96A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B680AA64-3BE2-4C1B-BA60-09EA38CDA96A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B680AA64-3BE2-4C1B-BA60-09EA38CDA96A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BE8FB3A-5678-4161-9684-453ECA2413BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BE8FB3A-5678-4161-9684-453ECA2413BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BE8FB3A-5678-4161-9684-453ECA2413BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BE8FB3A-5678-4161-9684-453ECA2413BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44FCAC07-BEB5-44FC-833E-DC56275DF257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44FCAC07-BEB5-44FC-833E-DC56275DF257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44FCAC07-BEB5-44FC-833E-DC56275DF257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44FCAC07-BEB5-44FC-833E-DC56275DF257}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
