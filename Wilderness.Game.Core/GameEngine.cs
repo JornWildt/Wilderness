@@ -7,18 +7,14 @@ namespace Wilderness.Game.Core
 {
   public class GameEngine
   {
-    protected IEntityRepository State { get; private set; }
-
-    protected IMessageBus MessageBus { get; private set; }
+    protected GameEnvironment Environment { get; private set; }
 
 
-    public GameEngine(IEntityRepository state, IMessageBus bus)
+    public GameEngine(GameEnvironment environment)
     {
-      Condition.Requires(state, nameof(state)).IsNotNull();
-      Condition.Requires(bus, nameof(bus)).IsNotNull();
+      Condition.Requires(environment, nameof(environment)).IsNotNull();
 
-      State = state;
-      MessageBus = bus;
+      Environment = environment;
     }
 
 
@@ -26,10 +22,13 @@ namespace Wilderness.Game.Core
     {
       while (true)
       {
-        MovementSystem.Update(State);
-        foreach (var entity in State.GetAllEntities())
-          await MessageBus.Publish("game", entity.ToString());
-        await Task.Delay(5000);
+        PhysicsSystem.Update(Environment);
+        RandomMovementSystem.Update(Environment);
+        RenderSystem.Update(Environment);
+
+        //foreach (var entity in Environment.EntityRepository.GetAllEntities())
+        //  await Environment.MessageBus.Publish("game", entity.ToString());
+        await Task.Delay(500);
       }
     }
   }

@@ -8,6 +8,8 @@ namespace Wilderness.Game.Core
   {
     void AddEntity(Entity e);
 
+    Entity GetEntity(EntityId id);
+
     IEnumerable<Entity> GetAllEntities();
 
     IEnumerable<TC1> GetComponents<TC1>()

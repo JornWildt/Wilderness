@@ -47,9 +47,28 @@ namespace Wilderness.Game.Core.Implementation
     }
 
 
+    public Entity GetEntity(EntityId id)
+    {
+      if (Entities.ContainsKey(id))
+        return Entities[id];
+      else
+        return null;
+    }
+
+
     public IEnumerable<Entity> GetAllEntities()
     {
       return Entities.Values;
+    }
+
+
+    public IEnumerable<TC> GetComponents<TC>(EntityId entityId)
+    {
+      Entity e = GetEntity(entityId);
+      if (e != null && e.Components != null)
+        return e.Components.OfType<TC>();
+      else
+        return Enumerable.Empty<TC>();
     }
 
 
@@ -67,8 +86,11 @@ namespace Wilderness.Game.Core.Implementation
       where TC1 : IComponent
       where TC2 : IComponent
     {
-      return GetComponents<TC1>()
-        .Join(GetComponents<TC2>(), c => c.EntityId, c => c.EntityId, (c1,c2) => new Tuple<TC1, TC2>(c1,c2));
+      foreach (var c1 in GetComponents<TC1>())
+      {
+        foreach (var c2 in GetComponents<TC2>(c1.EntityId))
+          yield return new Tuple<TC1, TC2>(c1, c2);
+      }
     }
   }
 }

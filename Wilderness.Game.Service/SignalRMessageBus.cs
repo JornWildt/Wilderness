@@ -10,7 +10,7 @@ namespace Wilderness.Game.Service
     public async Task Publish(string channel, object msg)
     {
       Console.WriteLine($"[{channel}] {msg}");
-      await GameMessageHub.SendMessage(channel, msg.ToString());
+      await GameMessageHub.SendMessage(channel, msg);
     }
   }
 }

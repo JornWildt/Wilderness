@@ -23,11 +23,15 @@ namespace Wilderness.Game.Service
 
       Entity bear1 = BearAssembler.BuildABear("Blackie", 0, 0);
       Entity bear2 = BearAssembler.BuildABear("Brownie", 10, 10);
+      Entity bear3 = BearAssembler.BuildABear("Beast", -10, -10);
       state.AddEntity(bear1);
       state.AddEntity(bear2);
+      state.AddEntity(bear3);
 
       IMessageBus bus = new SignalRMessageBus();
-      GameEngine engine = new GameEngine(state, bus);
+      GameEnvironment env = new GameEnvironment(state, bus);
+      GameEngine engine = new GameEngine(env);
+
       Task.Run(async () =>
       {
         await engine.RunGameLoop();
