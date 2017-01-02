@@ -11,13 +11,12 @@ namespace Wilderness.Game.Service
 {
   public class GameService : ServiceControl
   {
-    IDisposable SignalR { get; set; }
+    IDisposable SignalRHost { get; set; }
 
 
     public bool Start(HostControl hostControl)
     {
-      string url = "http://localhost:8080";
-      SignalR = WebApp.Start(url);
+      SignalRHost = WebApp.Start(ServiceAppSettings.SignalRUrl);
 
       IEntityRepository state = new InMemoryEntityRepository();
 
@@ -41,7 +40,7 @@ namespace Wilderness.Game.Service
 
     public bool Stop(HostControl hostControl)
     {
-      SignalR.Dispose();
+      SignalRHost.Dispose();
       return true;
     }
   }

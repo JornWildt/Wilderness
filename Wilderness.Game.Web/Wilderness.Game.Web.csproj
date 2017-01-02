@@ -160,6 +160,7 @@
     <Compile Include="Startup\Global.cs" />
     <Compile Include="Startup\OwinStartup.cs" />
     <Compile Include="Startup\RouteConfig.cs" />
+    <Compile Include="WebAppSettings.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -168,6 +169,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Elfisk.Commons\Elfisk.Commons\Elfisk.Commons.csproj">
+      <Project>{4bcfa333-8a2c-4726-9da5-33174b4e7309}</Project>
+      <Name>Elfisk.Commons</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Wilderness.Game.Core.Common\Wilderness.Game.Core.Common.csproj">
       <Project>{9be8fb3a-5678-4161-9684-453eca2413bc}</Project>
       <Name>Wilderness.Game.Core.Common</Name>
