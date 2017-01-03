@@ -16,8 +16,10 @@ namespace Wilderness.Game.MapGenerator
 
     protected Dictionary<string, TiledRegion<T>> TileRegions { get; set; }
 
+    protected ITiledMapGenerator<T> MapGenerator { get; set; }
 
-    public InMemoryTiledMap(int regionWidth, int regionHeight)
+
+    public InMemoryTiledMap(int regionWidth, int regionHeight, ITiledMapGenerator<T> generator)
     {
       Condition.Requires(regionWidth, nameof(regionWidth)).IsGreaterThan(0);
       Condition.Requires(regionHeight, nameof(regionHeight)).IsGreaterThan(0);
@@ -25,21 +27,23 @@ namespace Wilderness.Game.MapGenerator
       RegionWidth = regionWidth;
       RegionHeight = regionHeight;
       TileRegions = new Dictionary<string, TiledRegion<T>>();
+      MapGenerator = generator;
     }
 
 
-    public T this[int x, int y]
+    public Tile<T> this[int x, int y]
     {
       get
       {
         TiledRegion<T> region = GetRegion(x, y);
-        return region[x, y].Content;
+        return region[x, y];
       }
 
       set
       {
         TiledRegion<T> region = GetRegion(x, y);
-        region.SetContent(x, y, value);
+        region[x, y] = value;
+        //region.SetTile(x, y, value);
       }
     }
 
@@ -63,6 +67,8 @@ namespace Wilderness.Game.MapGenerator
       int ry = GetRegionY(y);
 
       TiledRegion<T> region = new TiledRegion<T>(rx * RegionWidth, ry * RegionHeight, RegionWidth, RegionHeight);
+
+      MapGenerator?.Initialize(region);
 
       return region;
     }

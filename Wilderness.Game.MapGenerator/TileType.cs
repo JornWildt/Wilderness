@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wilderness.Game.MapGenerator
 {
-  public interface ITiledMap<T>
-    where T : struct
+  public class TileType
   {
-    Tile<T> this[int x, int y] { get; set; }
   }
 }

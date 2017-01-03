@@ -46,10 +46,16 @@
   <ItemGroup>
     <Compile Include="InMemoryTiledMap.cs" />
     <Compile Include="ITiledMap.cs" />
+    <Compile Include="ITiledMapGenerator.cs" />
     <Compile Include="PrimitiveMapGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TiledRegion.cs" />
+    <Compile Include="TileType.cs" />
+    <Compile Include="TileTypes\ForrestTile.cs" />
+    <Compile Include="TileTypes\GrassTile.cs" />
+    <Compile Include="TileTypes\BuildingTitle.cs" />
+    <Compile Include="TileTypes\WaterTile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -56,13 +56,6 @@ namespace Wilderness.Game.MapGenerator
     }
 
 
-    public void SetContent(int x, int y, T value)
-    {
-      VerifyCoordinatesInRange(x, y);
-      Tiles[x - OffsetX, y - OffsetY].Content = value;
-    }
-
-
     protected void VerifyCoordinatesInRange(int x, int y)
     {
       if (x < OffsetX || x >= MaxX || y < OffsetY || y >= MaxY)
