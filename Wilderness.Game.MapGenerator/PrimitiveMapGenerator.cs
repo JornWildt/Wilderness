@@ -16,19 +16,5 @@ namespace Wilderness.Game.MapGenerator
     {
       Map = new InMemoryTiledMap<T>(xsize, ysize);
     }
-
-
-    public ITiledMap<T> Generate()
-    {
-      for (int x = -Map.Width / 2; x < Map.Width / 2; ++x)
-      {
-        for (int y = -Map.Height / 2; y < Map.Height / 2; ++y)
-        {
-          Map[x, y] = new Tile<T> { Content = default(T), X = x, Y = y };
-        }
-      }
-
-      return Map;
-    }
   }
 }

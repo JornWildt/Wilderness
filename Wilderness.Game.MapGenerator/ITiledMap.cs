@@ -9,10 +9,6 @@ namespace Wilderness.Game.MapGenerator
   public interface ITiledMap<T>
     where T : struct
   {
-    int Width { get; }
-
-    int Height { get; }
-
-    Tile<T> this[int x, int y] { get; set; }
+    T this[int x, int y] { get; set; }
   }
 }

@@ -10,50 +10,76 @@ namespace Wilderness.Game.MapGenerator
   public class InMemoryTiledMap<T> 
     : ITiledMap<T> where T : struct
   {
-    protected int XSize;
-    protected int YSize;
+    public int RegionWidth { get; protected set; }
 
-    protected Tile<T>[,] Tiles { get; set; }
+    public int RegionHeight { get; protected set; }
 
-    public InMemoryTiledMap(int xsize, int ysize)
+    protected Dictionary<string, TiledRegion<T>> TileRegions { get; set; }
+
+
+    public InMemoryTiledMap(int regionWidth, int regionHeight)
     {
-      Condition.Requires(xsize, nameof(xsize)).IsGreaterThan(0);
-      Condition.Requires(ysize, nameof(ysize)).IsGreaterThan(0);
+      Condition.Requires(regionWidth, nameof(regionWidth)).IsGreaterThan(0);
+      Condition.Requires(regionHeight, nameof(regionHeight)).IsGreaterThan(0);
 
-      XSize = xsize;
-      YSize = ysize;
-
-      Tiles = new Tile<T>[XSize, YSize];
-    }
-
-    public int Width
-    {
-      get
-      {
-        return XSize;
-      }
-    }
-
-    public int Height
-    {
-      get
-      {
-        return YSize;
-      }
+      RegionWidth = regionWidth;
+      RegionHeight = regionHeight;
+      TileRegions = new Dictionary<string, TiledRegion<T>>();
     }
 
 
-    public Tile<T> this[int x, int y]
+    public T this[int x, int y]
     {
       get
       {
-        return Tiles[x+XSize/2, y+YSize/2];
+        TiledRegion<T> region = GetRegion(x, y);
+        return region[x, y].Content;
       }
 
       set
       {
-        Tiles[x + XSize / 2, y + YSize / 2] = value;
+        TiledRegion<T> region = GetRegion(x, y);
+        region.SetContent(x, y, value);
       }
     }
+
+
+    protected TiledRegion<T> GetRegion(int x, int y)
+    {
+      string regionCacheKey = GenerateRegionCacheKey(x, y);
+      if (!TileRegions.ContainsKey(regionCacheKey))
+      {
+        TiledRegion<T> region = BuildRegion(x, y);
+        TileRegions[regionCacheKey] = region;
+      }
+
+      return TileRegions[regionCacheKey];
+    }
+
+
+    private TiledRegion<T> BuildRegion(int x, int y)
+    {
+      int rx = GetRegionX(x);
+      int ry = GetRegionY(y);
+
+      TiledRegion<T> region = new TiledRegion<T>(rx * RegionWidth, ry * RegionHeight, RegionWidth, RegionHeight);
+
+      return region;
+    }
+
+
+    protected string GenerateRegionCacheKey(int x, int y)
+    {
+      int rx = GetRegionX(x);
+      int ry = GetRegionY(y);
+
+      return rx + "/" + ry;
+    }
+
+
+    protected int GetRegionX(int x) => TiledRegion<T>.GetRegionIndex(x, RegionWidth);
+
+
+    protected int GetRegionY(int y) => TiledRegion<T>.GetRegionIndex(y, RegionHeight);
   }
 }

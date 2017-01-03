@@ -49,6 +49,7 @@
     <Compile Include="PrimitiveMapGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tile.cs" />
+    <Compile Include="TiledRegion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
