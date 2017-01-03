@@ -37,7 +37,7 @@ namespace Wilderness.Game.MapGenerator
       {
         for (int y = region.OffsetY; y < region.MaxY; y += distance)
         {
-          region[x, y] = new Tile<T> { Type = tile };
+          region[x, y] = new Tile<T>(tile, default(T));
         }
       }
     }

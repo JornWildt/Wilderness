@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using Wilderness.Game.MapGenerator;
+﻿using NUnit.Framework;
 using Wilderness.Game.MapGenerator.TileTypes;
 
 namespace Wilderness.Game.MapGenerator.Tests
@@ -39,25 +33,25 @@ namespace Wilderness.Game.MapGenerator.Tests
       map[-10, 10] = new Tile<int>(81);
       map[-10, -10] = new Tile<int>(91);
 
-      Assert.AreEqual(10, map[0, 0]);
-      Assert.AreEqual(20, map[0, 1]);
-      Assert.AreEqual(30, map[0, -1]);
-      Assert.AreEqual(40, map[1, 0]);
-      Assert.AreEqual(50, map[1, 1]);
-      Assert.AreEqual(60, map[1, -1]);
-      Assert.AreEqual(70, map[-1, 0]);
-      Assert.AreEqual(80, map[-1, 1]);
-      Assert.AreEqual(90, map[-1, -1]);
+      Assert.AreEqual(10, map[0, 0].Content);
+      Assert.AreEqual(20, map[0, 1].Content);
+      Assert.AreEqual(30, map[0, -1].Content);
+      Assert.AreEqual(40, map[1, 0].Content);
+      Assert.AreEqual(50, map[1, 1].Content);
+      Assert.AreEqual(60, map[1, -1].Content);
+      Assert.AreEqual(70, map[-1, 0].Content);
+      Assert.AreEqual(80, map[-1, 1].Content);
+      Assert.AreEqual(90, map[-1, -1].Content);
 
-      Assert.AreEqual(11, map[9, 0]);
-      Assert.AreEqual(21, map[9, 9]);
-      Assert.AreEqual(31, map[9, -9]);
-      Assert.AreEqual(41, map[10, 0]);
-      Assert.AreEqual(51, map[10, 10]);
-      Assert.AreEqual(61, map[10, -10]);
-      Assert.AreEqual(71, map[-10, 0]);
-      Assert.AreEqual(81, map[-10, 10]);
-      Assert.AreEqual(91, map[-10, -10]);
+      Assert.AreEqual(11, map[9, 0].Content);
+      Assert.AreEqual(21, map[9, 9].Content);
+      Assert.AreEqual(31, map[9, -9].Content);
+      Assert.AreEqual(41, map[10, 0].Content);
+      Assert.AreEqual(51, map[10, 10].Content);
+      Assert.AreEqual(61, map[10, -10].Content);
+      Assert.AreEqual(71, map[-10, 0].Content);
+      Assert.AreEqual(81, map[-10, 10].Content);
+      Assert.AreEqual(91, map[-10, -10].Content);
     }
 
 
@@ -70,7 +64,7 @@ namespace Wilderness.Game.MapGenerator.Tests
         {
           for (int y = region.OffsetY; y < region.MaxY; ++y)
           {
-            region[x, y] = new Tile<int> { Type = ((x+y) % 2 == 0 ? (TileType)ForrestTile.Instance : (TileType)WaterTile.Instance) };
+            region[x, y] = new Tile<int>(((x + y) % 2 == 0 ? (TileType)ForrestTile.Instance : (TileType)WaterTile.Instance), 0);
           }
         }
       }

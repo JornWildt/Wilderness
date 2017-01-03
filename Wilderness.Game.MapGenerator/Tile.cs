@@ -3,13 +3,13 @@
   public struct Tile<T>
     where T : struct
   {
-    public int X { get; set; }
+    public int X { get; private set; }
 
-    public int Y { get; set; }
+    public int Y { get; private set; }
 
-    public TileType Type { get; set; }
+    public TileType Type { get; private set; }
 
-    public T Content { get; set; }
+    public T Content { get; private set; }
 
 
     public Tile(T content)
