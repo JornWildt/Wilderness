@@ -21,23 +21,29 @@ namespace Wilderness.Game.MapGenerator
       }
       else if (k % 2 == 1 && l % 2 == 0)
       {
+        Initialize(region, 2, WaterTile.Instance);
       }
       else if (k % 2 == 0 && l % 2 == 1)
       {
+        Initialize(region, 3, ForrestTile.Instance);
       }
       else
       {
+        Initialize(region, 3, WaterTile.Instance);
       }
     }
 
 
-    private void Initialize(TiledRegion<T> region, int distance, ForrestTile tile)
+    private void Initialize(TiledRegion<T> region, int distance, TileType tile)
     {
-      for (int x = region.OffsetX; x < region.MaxX; x += distance)
+      for (int x = region.OffsetX; x < region.MaxX; ++x)
       {
-        for (int y = region.OffsetY; y < region.MaxY; y += distance)
+        for (int y = region.OffsetY; y < region.MaxY; ++y)
         {
-          region[x, y] = new Tile<T>(tile, default(T));
+          if (x % distance == 0 && y % distance == 0)
+            region[x, y] = new Tile<T>(tile, default(T));
+          else
+            region[x, y] = new Tile<T>(GrassTile.Instance, default(T));
         }
       }
     }

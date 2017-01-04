@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CuttingEdge.Conditions;
 
 namespace Wilderness.Game.MapGenerator
@@ -10,20 +6,25 @@ namespace Wilderness.Game.MapGenerator
   public class InMemoryTiledMap<T> 
     : ITiledMap<T> where T : struct
   {
+    public double TileSize { get; protected set; }
+
     public int RegionWidth { get; protected set; }
 
     public int RegionHeight { get; protected set; }
 
+    // FIXME: not the best performing infinite array of regions
     protected Dictionary<string, TiledRegion<T>> TileRegions { get; set; }
 
     protected ITiledMapGenerator<T> MapGenerator { get; set; }
 
 
-    public InMemoryTiledMap(int regionWidth, int regionHeight, ITiledMapGenerator<T> generator)
+    public InMemoryTiledMap(double tileSize, int regionWidth, int regionHeight, ITiledMapGenerator<T> generator)
     {
+      Condition.Requires(tileSize, nameof(tileSize)).IsGreaterThan(0.0);
       Condition.Requires(regionWidth, nameof(regionWidth)).IsGreaterThan(0);
       Condition.Requires(regionHeight, nameof(regionHeight)).IsGreaterThan(0);
 
+      TileSize = tileSize;
       RegionWidth = regionWidth;
       RegionHeight = regionHeight;
       TileRegions = new Dictionary<string, TiledRegion<T>>();

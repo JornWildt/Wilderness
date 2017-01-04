@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Wilderness.Game.Core.Components;
 
@@ -17,7 +13,7 @@ namespace Wilderness.Game.Core.Systems
     {
       foreach (var mover in environment.EntityRepository.GetComponents<RandomMovementComponent,PhysicsComponent>())
       {
-        int r = Randomizer.Next(10);
+        int r = Randomizer.Next(30);
         Vector v = mover.Item2.Velocity;
 
         if (r == 0)

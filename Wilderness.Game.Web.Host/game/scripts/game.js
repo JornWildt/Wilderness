@@ -26,13 +26,13 @@ Wilderness.Game = function () {
     //sprite.y = 60;
     //stage.addChild(sprite);
 
-    //Create the renderer
-    renderer = PIXI.autoDetectRenderer(256, 256);
+    // Create the renderer
+    renderer = PIXI.autoDetectRenderer(Wilderness.ViewPortManager.getPixelWidth(), Wilderness.ViewPortManager.getPixelHeight());
 
-    //Add the canvas to the HTML document
+    // Add the canvas to the HTML document
     $(cfg.viewElement).append(renderer.view);
 
-    //Tell the `renderer` to `render` the `stage`
+    // Tell the `renderer` to `render` the `stage`
     renderer.render(stage);
   };
 

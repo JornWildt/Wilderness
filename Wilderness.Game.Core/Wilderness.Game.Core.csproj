@@ -45,11 +45,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assemblers\BearAssembler.cs" />
-    <Compile Include="Components\Component.cs" />
+    <Compile Include="EntityFactories\BearFactory.cs" />
+    <Compile Include="EntityFactories\PlayerFactory.cs" />
+    <Compile Include="Component.cs" />
     <Compile Include="Components\NameComponent.cs" />
     <Compile Include="Components\PhysicsComponent.cs" />
     <Compile Include="Components\RandomMovementComponent.cs" />
+    <Compile Include="Components\ViewPortComponent.cs" />
     <Compile Include="Components\VisualComponent.cs" />
     <Compile Include="GameEnvironment.cs" />
     <Compile Include="IComponent.cs" />
@@ -62,11 +64,16 @@
     <Compile Include="Systems\PhysicsSystem.cs" />
     <Compile Include="Systems\RandomMovementSystem.cs" />
     <Compile Include="Systems\RenderSystem.cs" />
+    <Compile Include="TileContent.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wilderness.Game.Core.Common\Wilderness.Game.Core.Common.csproj">
       <Project>{9be8fb3a-5678-4161-9684-453eca2413bc}</Project>
       <Name>Wilderness.Game.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wilderness.Game.MapGenerator\Wilderness.Game.MapGenerator.csproj">
+      <Project>{1916be47-b91c-4a62-af19-99744c0c0424}</Project>
+      <Name>Wilderness.Game.MapGenerator</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

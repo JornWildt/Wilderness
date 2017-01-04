@@ -10,7 +10,7 @@ namespace Wilderness.Game.MapGenerator.Tests
     public void CanDoBasicWorkWithMap()
     {
       // Arrange
-      InMemoryTiledMap<int> map = new InMemoryTiledMap<int>(10, 8, null);
+      InMemoryTiledMap<int> map = new InMemoryTiledMap<int>(50, 10, 8, null);
 
       // Act
       map[0, 0] = new Tile<int>(10);
@@ -76,7 +76,7 @@ namespace Wilderness.Game.MapGenerator.Tests
     {
       // Arrange
       ITiledMapGenerator<int> generator = new ModulaMapGanerator();
-      InMemoryTiledMap<int> map = new InMemoryTiledMap<int>(10, 8, generator);
+      InMemoryTiledMap<int> map = new InMemoryTiledMap<int>(50, 10, 8, generator);
 
       // Act
       map[5, 5] = new Tile<int>(11);

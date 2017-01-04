@@ -1,4 +1,4 @@
-﻿namespace Wilderness.Game.Core.Components
+﻿namespace Wilderness.Game.Core
 {
   public class Component : IComponent
   {

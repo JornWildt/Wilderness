@@ -3,7 +3,7 @@ using Wilderness.Game.Core.Components;
 
 namespace Wilderness.Game.Core.Assemblers
 {
-  public static class BearAssembler
+  public static class BearFactory
   {
     public static Entity BuildABear(string name, double x, double y)
     {

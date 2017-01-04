@@ -125,6 +125,10 @@
       <Project>{898ef612-6edf-48ac-b042-e24b88c60ae4}</Project>
       <Name>Wilderness.Game.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Wilderness.Game.MapGenerator\Wilderness.Game.MapGenerator.csproj">
+      <Project>{1916be47-b91c-4a62-af19-99744c0c0424}</Project>
+      <Name>Wilderness.Game.MapGenerator</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

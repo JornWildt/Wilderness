@@ -1,4 +1,5 @@
-﻿using Wilderness.Game.Core.Components;
+﻿using System;
+using Wilderness.Game.Core.Components;
 
 namespace Wilderness.Game.Core.Systems
 {
@@ -9,6 +10,7 @@ namespace Wilderness.Game.Core.Systems
       foreach (var moveable in environment.EntityRepository.GetComponents<PhysicsComponent>())
       {
         moveable.Position += moveable.Velocity;
+        Console.WriteLine(moveable.Position + " / " + moveable.Velocity);
       }
     }
   }
