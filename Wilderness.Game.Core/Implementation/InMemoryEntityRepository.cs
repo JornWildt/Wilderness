@@ -47,6 +47,25 @@ namespace Wilderness.Game.Core.Implementation
     }
 
 
+    public void RemoveEntity(EntityId id)
+    {
+      Entity entity;
+      if (Entities.TryGetValue(id, out entity))
+      {
+        Entities.Remove(id);
+        foreach (Component c in entity.Components)
+        {
+          if (c != null)
+          {
+            Type t = c.GetType();
+            if (Components.ContainsKey(t))
+              Components[t].Remove(c);
+          }
+        }
+      }
+    }
+
+
     public Entity GetEntity(EntityId id)
     {
       if (Entities.ContainsKey(id))

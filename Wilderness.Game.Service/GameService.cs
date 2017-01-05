@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
+using log4net;
 using Microsoft.Owin.Hosting;
 using Topshelf;
 using Wilderness.Game.Blueprint;
@@ -11,6 +12,8 @@ namespace Wilderness.Game.Service
 {
   public class GameService : ServiceControl
   {
+    static ILog Logger = LogManager.GetLogger(typeof(GameService));
+
     IDisposable SignalRHost { get; set; }
 
     IWindsorContainer CastleContainer { get; set; }
@@ -31,7 +34,15 @@ namespace Wilderness.Game.Service
 
       Task.Run(async () =>
       {
-        await engine.RunGameLoop();
+        try
+        {
+          await engine.RunGameLoop();
+        }
+        catch (Exception ex)
+        {
+          Logger.Error(ex);
+          await Task.Delay(1000);
+        }
       });
       return true;
     }

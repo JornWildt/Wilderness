@@ -54,6 +54,7 @@
     <Compile Include="IDependencyContainer.cs" />
     <Compile Include="IEntityRepository.cs" />
     <Compile Include="GameEngine.cs" />
+    <Compile Include="IEventQueue.cs" />
     <Compile Include="Implementation\InMemoryEntityRepository.cs" />
     <Compile Include="IPlayersBus.cs" />
     <Compile Include="ISystem.cs" />

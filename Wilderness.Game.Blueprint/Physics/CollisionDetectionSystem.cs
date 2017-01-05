@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
+using Wilderness.Game.Blueprint.EntityFactories;
 using Wilderness.Game.Blueprint.Physics;
 using Wilderness.Game.Core;
 using Wilderness.Game.MapGenerator;
@@ -25,6 +26,10 @@ namespace Wilderness.Game.Blueprint.Physics
         {
           // Change direction
           component.Velocity = new Vector(component.Velocity.Y, -component.Velocity.X);
+          component.Position = new Point(component.Position.X + 12, component.Position.Y + 12);
+
+          Entity explosion = ExplosionFactory.BuildExplosion(component.Position);
+          environment.QueuedActions.Enqueue(() => Entities.AddEntity(explosion));
         }
       }
 

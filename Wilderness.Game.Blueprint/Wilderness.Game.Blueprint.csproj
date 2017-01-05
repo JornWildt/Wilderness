@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFactories\BearFactory.cs" />
+    <Compile Include="EntityFactories\ExplosionFactory.cs" />
     <Compile Include="EntityFactories\PlayerFactory.cs" />
     <Compile Include="GameInitializer.cs" />
     <Compile Include="Movement\RandomMovementComponent.cs" />
@@ -54,6 +55,8 @@
     <Compile Include="Physics\CollisionDetectionSystem.cs" />
     <Compile Include="Physics\PhysicsComponent.cs" />
     <Compile Include="Physics\PhysicsSystem.cs" />
+    <Compile Include="Physics\TimedComponent.cs" />
+    <Compile Include="Physics\TimerSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rendering\RenderSystem.cs" />
     <Compile Include="Rendering\ViewPortComponent.cs" />

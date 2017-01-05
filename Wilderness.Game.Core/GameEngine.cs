@@ -26,12 +26,13 @@ namespace Wilderness.Game.Core
 
       while (true)
       {
+        while (Environment.QueuedActions.Count > 0)
+          Environment.QueuedActions.Dequeue()();
+
         foreach (ISystem system in Systems)
           await system.Update(Environment);
 
-          //foreach (var entity in Environment.EntityRepository.GetAllEntities())
-          //  await Environment.MessageBus.Publish("game", entity.ToString());
-          await Task.Delay(500);
+        await Task.Delay(500);
       }
     }
   }
