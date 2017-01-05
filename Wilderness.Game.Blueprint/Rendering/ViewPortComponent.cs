@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
 using CuttingEdge.Conditions;
-using Wildernes.Game.Blueprint.Physics;
+using Wilderness.Game.Blueprint.Physics;
 using Wilderness.Game.Core;
 using Wilderness.Game.Core.Common;
 

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
-using Wildernes.Game.Blueprint.Physics;
+using Wilderness.Game.Blueprint.Physics;
 using Wilderness.Game.Core;
 using Wilderness.Game.MapGenerator;
 using Wilderness.Game.MapGenerator.TileTypes;

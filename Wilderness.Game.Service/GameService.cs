@@ -4,7 +4,7 @@ using Castle.Windsor;
 using Castle.Windsor.Installer;
 using Microsoft.Owin.Hosting;
 using Topshelf;
-using Wildernes.Game.Blueprint;
+using Wilderness.Game.Blueprint;
 using Wilderness.Game.Core;
 
 namespace Wilderness.Game.Service

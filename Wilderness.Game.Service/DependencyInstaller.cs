@@ -17,7 +17,7 @@ namespace Wilderness.Game.Service
       container.Register(Reg.Component.For<IPlayersBus>().ImplementedBy<SignalRPlayersBus>());
 
       container.Register(
-        Classes.FromAssemblyNamed("Wildernes.Game.Blueprint")
+        Classes.FromAssemblyNamed("Wilderness.Game.Blueprint")
         .BasedOn<ISystem>()
         .WithService.Base());
 
