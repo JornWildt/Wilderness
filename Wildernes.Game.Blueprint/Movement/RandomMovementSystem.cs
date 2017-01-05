@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Windows;
-using Wilderness.Game.Core.Components;
+using Wildernes.Game.Blueprint.Physics;
+using Wilderness.Game.Core;
 
-namespace Wilderness.Game.Core.Systems
+namespace Wildernes.Game.Blueprint.Movement
 {
-  public static class RandomMovementSystem
+  public class RandomMovementSystem : ISystem
   {
     static Random Randomizer = new Random();
 

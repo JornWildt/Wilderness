@@ -1,6 +1,7 @@
 ﻿using System.Windows;
+using Wilderness.Game.Core;
 
-namespace Wilderness.Game.Core.Components
+namespace Wildernes.Game.Blueprint.Physics
 {
   public class PhysicsComponent : Component
   {

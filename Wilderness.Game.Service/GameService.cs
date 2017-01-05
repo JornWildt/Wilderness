@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Castle.Windsor;
+using Castle.Windsor.Installer;
 using Microsoft.Owin.Hosting;
 using Topshelf;
 using Wilderness.Game.Core;
-using Wilderness.Game.Core.Assemblers;
-using Wilderness.Game.Core.Common;
-using Wilderness.Game.Core.Components;
-using Wilderness.Game.Core.Implementation;
-using Wilderness.Game.MapGenerator;
 
 namespace Wilderness.Game.Service
 {
@@ -15,31 +12,18 @@ namespace Wilderness.Game.Service
   {
     IDisposable SignalRHost { get; set; }
 
+    IWindsorContainer CastleContainer { get; set; }
+
+
     public bool Start(HostControl hostControl)
     {
+      CastleContainer = new WindsorContainer();
+      CastleContainer.Install(FromAssembly.This());
+
       SignalRHost = WebApp.Start(ServiceAppSettings.SignalRUrl);
 
-      IEntityRepository entities = new InMemoryEntityRepository();
-
-      Entity bear1 = BearFactory.BuildABear("Blackie", 0, 0);
-      Entity bear2 = BearFactory.BuildABear("Brownie", 10, 10);
-      Entity bear3 = BearFactory.BuildABear("Beast", -10, -10);
-      entities.AddEntity(bear1);
-      entities.AddEntity(bear2);
-      entities.AddEntity(bear3);
-
-      Entity player = PlayerFactory.BuildPlayer("Borg");
-      entities.AddEntity(player);
-
-      ITiledMap<TileContent> map = 
-        new InMemoryTiledMap<TileContent>(
-          ServiceAppSettings.MapTileSize,
-          ServiceAppSettings.MapRegionSize, 
-          ServiceAppSettings.MapRegionSize, 
-          new PrimitiveMapGenerator<TileContent>());
-
-      IMessageBus bus = new SignalRMessageBus();
-      GameEnvironment env = new GameEnvironment(entities, map, bus);
+      CastleDependencyContainer gameContainer = new CastleDependencyContainer(CastleContainer);
+      GameEnvironment env = new GameEnvironment(gameContainer);
       GameEngine engine = new GameEngine(env);
 
       Task.Run(async () =>
@@ -52,6 +36,7 @@ namespace Wilderness.Game.Service
     public bool Stop(HostControl hostControl)
     {
       SignalRHost.Dispose();
+      CastleContainer.Dispose();
       return true;
     }
   }
