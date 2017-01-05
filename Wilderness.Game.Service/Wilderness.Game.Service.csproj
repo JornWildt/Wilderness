@@ -116,7 +116,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceAppSettings.cs" />
     <Compile Include="ServiceControlWithErrorHandling.cs" />
-    <Compile Include="SignalRMessageBus.cs" />
+    <Compile Include="SignalRPlayersBus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

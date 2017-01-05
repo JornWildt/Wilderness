@@ -4,6 +4,7 @@ using Castle.Windsor;
 using Castle.Windsor.Installer;
 using Microsoft.Owin.Hosting;
 using Topshelf;
+using Wildernes.Game.Blueprint;
 using Wilderness.Game.Core;
 
 namespace Wilderness.Game.Service
@@ -26,12 +27,15 @@ namespace Wilderness.Game.Service
       GameEnvironment env = new GameEnvironment(gameContainer);
       GameEngine engine = new GameEngine(env);
 
+      GameInitializer.Initialize(CastleContainer.Resolve<IEntityRepository>());
+
       Task.Run(async () =>
       {
         await engine.RunGameLoop();
       });
       return true;
     }
+
 
     public bool Stop(HostControl hostControl)
     {

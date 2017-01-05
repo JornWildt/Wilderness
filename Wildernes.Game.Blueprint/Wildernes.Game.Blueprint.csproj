@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CuttingEdge.Conditions, Version=1.2.0.11174, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\CuttingEdge.Conditions.1.2.0.0\lib\NET35\CuttingEdge.Conditions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,9 +54,18 @@
     <Compile Include="Physics\PhysicsComponent.cs" />
     <Compile Include="Physics\PhysicsSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rendering\RenderSystem.cs" />
+    <Compile Include="Rendering\ViewPortComponent.cs" />
+    <Compile Include="Rendering\VisualComponent.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wilderness.Game.Core.Common\Wilderness.Game.Core.Common.csproj">
+      <Project>{9be8fb3a-5678-4161-9684-453eca2413bc}</Project>
+      <Name>Wilderness.Game.Core.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Wilderness.Game.Core\Wilderness.Game.Core.csproj">
       <Project>{898ef612-6edf-48ac-b042-e24b88c60ae4}</Project>
       <Name>Wilderness.Game.Core</Name>

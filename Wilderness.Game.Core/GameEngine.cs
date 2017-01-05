@@ -1,13 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using CuttingEdge.Conditions;
 using Wilderness.Game.Core.Common;
-using Wilderness.Game.Core.Systems;
 
 namespace Wilderness.Game.Core
 {
   public class GameEngine
   {
     protected GameEnvironment Environment { get; private set; }
+
+    protected ISystem[] Systems { get; set; }
 
 
     public GameEngine(GameEnvironment environment)
@@ -20,15 +22,16 @@ namespace Wilderness.Game.Core
 
     public async Task RunGameLoop()
     {
+      Systems = Environment.DependencyContainer.ResolveAll<ISystem>().ToArray();
+
       while (true)
       {
-        PhysicsSystem.Update(Environment);
-        RandomMovementSystem.Update(Environment);
-        RenderSystem.Update(Environment);
+        foreach (ISystem system in Systems)
+          await system.Update(Environment);
 
-        //foreach (var entity in Environment.EntityRepository.GetAllEntities())
-        //  await Environment.MessageBus.Publish("game", entity.ToString());
-        await Task.Delay(500);
+          //foreach (var entity in Environment.EntityRepository.GetAllEntities())
+          //  await Environment.MessageBus.Publish("game", entity.ToString());
+          await Task.Delay(500);
       }
     }
   }

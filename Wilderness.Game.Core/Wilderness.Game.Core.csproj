@@ -47,8 +47,6 @@
   <ItemGroup>
     <Compile Include="Component.cs" />
     <Compile Include="Components\NameComponent.cs" />
-    <Compile Include="Components\ViewPortComponent.cs" />
-    <Compile Include="Components\VisualComponent.cs" />
     <Compile Include="GameEnvironment.cs" />
     <Compile Include="IComponent.cs" />
     <Compile Include="Entity.cs" />
@@ -57,11 +55,9 @@
     <Compile Include="IEntityRepository.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="Implementation\InMemoryEntityRepository.cs" />
+    <Compile Include="IPlayersBus.cs" />
     <Compile Include="ISystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SystemManager.cs" />
-    <Compile Include="Systems\PhysicsSystem.cs" />
-    <Compile Include="Systems\RenderSystem.cs" />
     <Compile Include="TileContent.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Systems\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

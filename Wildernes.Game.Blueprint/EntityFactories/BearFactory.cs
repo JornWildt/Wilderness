@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Wildernes.Game.Blueprint.Movement;
 using Wildernes.Game.Blueprint.Physics;
+using Wilderness.Game.Blueprint.Rendering;
 using Wilderness.Game.Core;
 using Wilderness.Game.Core.Components;
 

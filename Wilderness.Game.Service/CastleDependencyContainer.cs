@@ -1,4 +1,5 @@
-﻿using Castle.Windsor;
+﻿using System.Collections.Generic;
+using Castle.Windsor;
 using CuttingEdge.Conditions;
 using Wilderness.Game.Core;
 
@@ -19,6 +20,12 @@ namespace Wilderness.Game.Service
     public T Resolve<T>()
     {
       return Container.Resolve<T>();
+    }
+
+
+    public IEnumerable<T> ResolveAll<T>()
+    {
+      return Container.ResolveAll<T>();
     }
   }
 }
