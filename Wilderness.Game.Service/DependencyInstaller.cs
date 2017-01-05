@@ -1,6 +1,7 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using Wilderness.Game.Blueprint;
 using Wilderness.Game.Core;
 using Wilderness.Game.Core.Implementation;
 using Wilderness.Game.MapGenerator;

@@ -18,7 +18,7 @@ namespace Wildernes.Game.Blueprint.EntityFactories
         new IComponent[4]
         {
           new NameComponent(id, name),
-          new PhysicsComponent(id, new Point(x,y), new Vector(3, 3)),
+          new PhysicsComponent(id, new Point(x,y), new Vector(1, 1)),
           new RandomMovementComponent(id),
           new VisualComponent(id, "B")
         });

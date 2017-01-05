@@ -44,7 +44,6 @@ namespace Wilderness.Game.MapGenerator
       {
         TiledRegion<T> region = GetRegion(x, y);
         region[x, y] = value;
-        //region.SetTile(x, y, value);
       }
     }
 
@@ -88,5 +87,25 @@ namespace Wilderness.Game.MapGenerator
 
 
     protected int GetRegionY(int y) => TiledRegion<T>.GetRegionIndex(y, RegionHeight);
+
+
+    public Tile<T> this[double x, double y]
+    {
+      get
+      {
+        int tx = GetTileIndexFromPosition(x);
+        int ty = GetTileIndexFromPosition(y);
+        return this[tx, ty];
+      }
+      set
+      {
+        int tx = GetTileIndexFromPosition(x);
+        int ty = GetTileIndexFromPosition(y);
+        this[tx, ty] = value;
+      }
+    }
+
+
+    protected int GetTileIndexFromPosition(double p) => (int)(p / (double)TileSize);
   }
 }
