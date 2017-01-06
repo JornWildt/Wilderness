@@ -15,6 +15,7 @@ namespace Wilderness.Game.Service
     {
       container.Register(Reg.Component.For<IEntityRepository>().ImplementedBy<InMemoryEntityRepository>());
       container.Register(Reg.Component.For<IPlayersBus>().ImplementedBy<SignalRPlayersBus>());
+      container.Register(Reg.Component.For<IGameLoopEventQueue>().ImplementedBy<GameLoopEventQueue>());
 
       container.Register(
         Classes.FromAssemblyNamed("Wilderness.Game.Blueprint")

@@ -12,6 +12,7 @@ namespace Wilderness.Game.Blueprint.Physics
     #region Dependencies
 
     public IEntityRepository Entities { get; set; }
+    public IGameLoopEventQueue EventQueue { get; set; }
 
     #endregion
 
@@ -23,7 +24,7 @@ namespace Wilderness.Game.Blueprint.Physics
       DateTime now = DateTime.Now; ;
       foreach (var item in Entities.GetComponents<TimedComponent>())
       {
-        item.Refresh(environment, Entities, now);
+        item.Refresh(Entities, EventQueue, now);
       }
 
       return Task.CompletedTask;

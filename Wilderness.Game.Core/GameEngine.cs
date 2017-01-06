@@ -11,6 +11,8 @@ namespace Wilderness.Game.Core
 
     protected ISystem[] Systems { get; set; }
 
+    protected IGameLoopEventQueue EventQueue { get; set; }
+
 
     public GameEngine(GameEnvironment environment)
     {
@@ -23,11 +25,11 @@ namespace Wilderness.Game.Core
     public async Task RunGameLoop()
     {
       Systems = Environment.DependencyContainer.ResolveAll<ISystem>().ToArray();
+      EventQueue = Environment.DependencyContainer.Resolve<IGameLoopEventQueue>();
 
       while (true)
       {
-        while (Environment.QueuedActions.Count > 0)
-          Environment.QueuedActions.Dequeue()();
+        EventQueue.InvokeEvents(Environment);
 
         foreach (ISystem system in Systems)
           await system.Update(Environment);

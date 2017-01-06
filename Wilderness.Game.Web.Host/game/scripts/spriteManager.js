@@ -13,16 +13,35 @@ Wilderness.SpriteManager = function () {
   }
 
   var onTexturesLoaded = function (cfg, callback) {
-    textures["B"] = PIXI.loader.resources[cfg.rootUrl + "game/images/bear.png"].texture;
+    textures["B"] =
+    {
+      texture: PIXI.loader.resources[cfg.rootUrl + "game/images/bear.png"].texture,
+      frame: new PIXI.Rectangle(0, 0, 32, 32)
+    };
 
-    textures["T1"] = PIXI.loader.resources[cfg.rootUrl + "game/tiles/tiles1.bmp"].texture;
-    textures["T1"].frame = new PIXI.Rectangle(0, 0, 32, 32);
+    textures["T1"] =
+      {
+        texture: PIXI.loader.resources[cfg.rootUrl + "game/tiles/tiles1.bmp"].texture,
+        frame: new PIXI.Rectangle(0, 0, 32, 32)
+      };
 
-    textures["T2"] = PIXI.loader.resources[cfg.rootUrl + "game/tiles/tiles1.bmp"].texture;
-    textures["T2"].frame = new PIXI.Rectangle(32, 0, 32, 32);
+    textures["T2"] =
+      {
+        texture: PIXI.loader.resources[cfg.rootUrl + "game/tiles/tiles1.bmp"].texture,
+        frame: new PIXI.Rectangle(32, 0, 32, 32)
+      };
 
-    textures["T3"] = PIXI.loader.resources[cfg.rootUrl + "game/tiles/tiles1.bmp"].texture;
-    textures["T3"].frame = new PIXI.Rectangle(64, 0, 32, 32);
+    textures["T3"] =
+      {
+        texture: PIXI.loader.resources[cfg.rootUrl + "game/tiles/tiles1.bmp"].texture,
+        frame: new PIXI.Rectangle(64, 0, 32, 32)
+      };
+
+    textures["T4"] =
+      {
+        texture: PIXI.loader.resources[cfg.rootUrl + "game/tiles/tiles1.bmp"].texture,
+        frame: new PIXI.Rectangle(96, 0, 32, 32)
+      };
 
     callback(cfg);
   }
@@ -37,7 +56,10 @@ Wilderness.SpriteManager = function () {
   var getOrCreateSprite = function(spriteId, textureId)
   {
     if (!(spriteId in sprites)) {
-      sprites[spriteId] = new PIXI.Sprite(getTexture(textureId));
+      var texture = textures[textureId].texture;
+      texture.frame = textures[textureId].frame;
+      sprites[spriteId] = new PIXI.Sprite(texture);
+      sprites[spriteId].scale.set(3, 3);
       Wilderness.Game.getStage().addChild(sprites[spriteId]);
     }
 

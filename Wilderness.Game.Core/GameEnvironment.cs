@@ -8,8 +8,6 @@ namespace Wilderness.Game.Core
   {
     public IDependencyContainer DependencyContainer { get; protected set; }
 
-    public Queue<Action> QueuedActions { get; set; } = new Queue<Action>();
-
 
     public GameEnvironment(IDependencyContainer dependencies)
     {

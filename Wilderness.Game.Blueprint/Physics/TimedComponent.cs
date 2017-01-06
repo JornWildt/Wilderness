@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Wilderness.Game.Core;
+using Wilderness.Game.Core.GameEvents;
 
 namespace Wilderness.Game.Blueprint.Physics
 {
@@ -19,11 +20,11 @@ namespace Wilderness.Game.Blueprint.Physics
     }
 
 
-    public void Refresh(GameEnvironment environment, IEntityRepository entities, DateTime now)
+    public void Refresh(IEntityRepository entities, IGameLoopEventQueue queue, DateTime now)
     {
       if (now >= Expires)
       {
-        environment.QueuedActions.Enqueue(() => entities.RemoveEntity(EntityId));
+        queue.Enqueue(new ActionEvent(() => entities.RemoveEntity(EntityId)));
       }
     }
   }

@@ -37,10 +37,6 @@ namespace Wilderness.Game.Blueprint.Movement
         {
           mover.Item2.Velocity = new Vector(-v.X, v.Y);
         }
-        else if (r == 3)
-        {
-          mover.Item2.Velocity = new Vector(v.Y, v.X);
-        }
       }
 
       return Task.CompletedTask;

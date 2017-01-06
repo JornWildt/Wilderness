@@ -20,6 +20,7 @@ Wilderness.Game = function () {
   var startRender = function (cfg) {
     //Create a container object called the `stage`
     stage = new PIXI.Container();
+    //stage.scale.set(3, 3);
 
     //var sprite = Wilderness.SpriteManager.getOrCreateSprite("abc", "B");
     //sprite.x = 96;

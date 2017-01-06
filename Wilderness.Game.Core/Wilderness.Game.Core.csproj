@@ -48,6 +48,7 @@
     <Compile Include="Component.cs" />
     <Compile Include="Components\NameComponent.cs" />
     <Compile Include="GameEnvironment.cs" />
+    <Compile Include="GameEvents\ActionEvent.cs" />
     <Compile Include="IComponent.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="EntityId.cs" />
@@ -55,6 +56,9 @@
     <Compile Include="IEntityRepository.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="IEventQueue.cs" />
+    <Compile Include="IGameLoopEvent.cs" />
+    <Compile Include="IGameLoopEventQueue.cs" />
+    <Compile Include="Implementation\GameLoopEventQueue.cs" />
     <Compile Include="Implementation\InMemoryEntityRepository.cs" />
     <Compile Include="IPlayersBus.cs" />
     <Compile Include="ISystem.cs" />
@@ -73,9 +77,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Systems\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -41,7 +41,6 @@ namespace Wilderness.Game.Service
         catch (Exception ex)
         {
           Logger.Error(ex);
-          await Task.Delay(1000);
         }
       });
       return true;
