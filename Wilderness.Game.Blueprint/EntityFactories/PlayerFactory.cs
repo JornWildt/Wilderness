@@ -17,7 +17,7 @@ namespace Wilderness.Game.Blueprint.EntityFactories
         new IComponent[4]
         {
           new NameComponent(id, name),
-          new ViewPortComponent(id, new Point(0,0), 100, 100),
+          new ViewPortComponent(id, new Point(-50,-50), 100, 100),
           new PhysicsComponent(id, new Point(0,0), new Vector(0, 0)),
           new VisualComponent(id, "T1")
         });
