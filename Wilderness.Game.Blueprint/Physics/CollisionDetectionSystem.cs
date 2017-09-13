@@ -2,10 +2,10 @@
 using System.Threading.Tasks;
 using System.Windows;
 using Wilderness.Game.Blueprint.EntityFactories;
-using Wilderness.Game.Core;
-using Wilderness.Game.Core.GameEvents;
+using Elfisk.ECS.Core;
 using Wilderness.Game.MapGenerator;
 using Wilderness.Game.MapGenerator.TileTypes;
+using Elfisk.ECS.Core.GameEvents;
 
 namespace Wilderness.Game.Blueprint.Physics
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Wilderness.Game.Core;
+using Elfisk.ECS.Core;
 
 namespace Wilderness.Game.Blueprint.Physics
 {

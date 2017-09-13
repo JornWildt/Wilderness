@@ -1,6 +1,6 @@
 ﻿using CuttingEdge.Conditions;
 using Wilderness.Game.Blueprint.EntityFactories;
-using Wilderness.Game.Core;
+using Elfisk.ECS.Core;
 
 namespace Wilderness.Game.Blueprint
 {

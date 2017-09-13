@@ -1,8 +1,8 @@
 ﻿using System.Windows;
+using Elfisk.ECS.Core;
+using Elfisk.ECS.Core.Components;
 using Wilderness.Game.Blueprint.Physics;
 using Wilderness.Game.Blueprint.Rendering;
-using Wilderness.Game.Core;
-using Wilderness.Game.Core.Components;
 
 namespace Wilderness.Game.Blueprint.EntityFactories
 {

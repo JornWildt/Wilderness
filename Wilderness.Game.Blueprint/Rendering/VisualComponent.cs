@@ -1,5 +1,5 @@
 ﻿using CuttingEdge.Conditions;
-using Wilderness.Game.Core;
+using Elfisk.ECS.Core;
 
 namespace Wilderness.Game.Blueprint.Rendering
 {

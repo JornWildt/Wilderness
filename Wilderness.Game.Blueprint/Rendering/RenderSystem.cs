@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Wilderness.Game.Core;
+using Elfisk.ECS.Core;
 
 namespace Wilderness.Game.Blueprint.Rendering
 {

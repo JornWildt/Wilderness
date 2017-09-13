@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Wilderness.Game.Core;
-using Wilderness.Game.Core.GameEvents;
+using Elfisk.ECS.Core;
+using Elfisk.ECS.Core.GameEvents;
 
 namespace Wilderness.Game.Blueprint.Physics
 {

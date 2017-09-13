@@ -1,9 +1,10 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using Elfisk.ECS.Core;
+using Elfisk.ECS.Core.Implementation;
+using Elfisk.ECS.Service;
 using Wilderness.Game.Blueprint;
-using Wilderness.Game.Core;
-using Wilderness.Game.Core.Implementation;
 using Wilderness.Game.MapGenerator;
 using Reg = Castle.MicroKernel.Registration;
 
@@ -18,7 +19,7 @@ namespace Wilderness.Game.Service
       container.Register(Reg.Component.For<IGameLoopEventQueue>().ImplementedBy<GameLoopEventQueue>());
 
       container.Register(
-        Classes.FromAssemblyNamed("Wilderness.Game.Blueprint")
+        Classes.FromAssemblyContaining(typeof(GameInitializer))
         .BasedOn<ISystem>()
         .WithService.Base());
 

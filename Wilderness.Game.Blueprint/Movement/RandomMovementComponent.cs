@@ -1,4 +1,4 @@
-﻿using Wilderness.Game.Core;
+﻿using Elfisk.ECS.Core;
 
 namespace Wilderness.Game.Blueprint.Movement
 {

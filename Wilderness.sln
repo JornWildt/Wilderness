@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wilderness.Game.Core", "Wilderness.Game.Core\Wilderness.Game.Core.csproj", "{898EF612-6EDF-48AC-B042-E24B88C60AE4}"
 EndProject
@@ -20,11 +20,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wilderness.Game.MapGenerator", "Wilderness.Game.MapGenerator\Wilderness.Game.MapGenerator.csproj", "{1916BE47-B91C-4A62-AF19-99744C0C0424}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elfisk.Commons", "Elfisk.Commons\Elfisk.Commons\Elfisk.Commons.csproj", "{4BCFA333-8A2C-4726-9DA5-33174B4E7309}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elfisk.Commons", "Elfisk\Elfisk.Commons\Elfisk.Commons.csproj", "{4BCFA333-8A2C-4726-9DA5-33174B4E7309}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wilderness.Game.MapGenerator.Tests", "Wilderness.Game.MapGenerator.Tests\Wilderness.Game.MapGenerator.Tests.csproj", "{C830C61F-34B3-4E66-AAD8-DFF7B997238E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wilderness.Game.Blueprint", "Wilderness.Game.Blueprint\Wilderness.Game.Blueprint.csproj", "{3B0694E1-2ED9-4287-A180-ACB62A11FB92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elfisk.ECS.Core", "Elfisk\Elfisk.ECS\Elfisk.ECS.Core\Elfisk.ECS.Core.csproj", "{E5ADA543-2FEB-404E-8F03-E66146C357C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elfisk.ECS.Service", "Elfisk\Elfisk.ECS\Elfisk.ECS.Service\Elfisk.ECS.Service.csproj", "{302E9443-5ED2-4F09-97E6-6D8B6945EED4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +72,14 @@ Global
 		{3B0694E1-2ED9-4287-A180-ACB62A11FB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B0694E1-2ED9-4287-A180-ACB62A11FB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B0694E1-2ED9-4287-A180-ACB62A11FB92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5ADA543-2FEB-404E-8F03-E66146C357C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5ADA543-2FEB-404E-8F03-E66146C357C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5ADA543-2FEB-404E-8F03-E66146C357C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5ADA543-2FEB-404E-8F03-E66146C357C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{302E9443-5ED2-4F09-97E6-6D8B6945EED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{302E9443-5ED2-4F09-97E6-6D8B6945EED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{302E9443-5ED2-4F09-97E6-6D8B6945EED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{302E9443-5ED2-4F09-97E6-6D8B6945EED4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
