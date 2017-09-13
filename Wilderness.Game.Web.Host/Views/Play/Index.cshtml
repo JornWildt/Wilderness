@@ -28,13 +28,38 @@
   <script src="~/Elfisk/game.js"></script>
 
   <script>
+    var rootUrl = "@Model.RootUrl";
+
+    var images =
+      [
+        {
+          url: rootUrl + "game/images/bear.png",
+          frames :
+            [
+              { name: "B", box: [0, 0, 32, 32] }
+            ]
+        },
+        {
+          url: rootUrl + "game/tiles/tiles1.bmp",
+          frames:
+            [
+              { name: "T1", box: [0, 0, 32, 32] },
+              { name: "T2", box: [32, 0, 32, 32] },
+              { name: "T3", box: [64, 0, 32, 32] },
+              { name: "T4", box: [96, 0, 32, 32] }
+            ]
+        },
+      ]
+
+    Elfisk.SpriteManager.registerImages(images);
+
     function runGame() {
       Elfisk.Game.runGameLoop();
     }
 
     Elfisk.Game.initialize(
       {
-        rootUrl: "/wilderness/",
+        rootUrl: rootUrl,
         signalRUrl: "@Model.SignalRUrl",
         viewElement: '#gameDisplay',
         onReady: runGame
