@@ -18,7 +18,7 @@ namespace Wilderness.Game.Blueprint.EntityFactories
         {
           new PhysicsComponent(id, pos, new Vector(0,0)),
           new VisualComponent(id, "T4"),
-          new TimedComponent(id, TimeSpan.FromSeconds(4))
+          new TimedComponent(id, TimeSpan.FromSeconds(2))
         });
     }
   }

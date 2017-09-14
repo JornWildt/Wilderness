@@ -17,6 +17,9 @@ namespace Wilderness.Game.Blueprint
       entities.AddEntity(bear2);
       entities.AddEntity(bear3);
 
+      entities.AddEntity(BearFactory.BuildABear("Blop", -10, 10));
+      entities.AddEntity(BearFactory.BuildABear("Rolph", 10, -10));
+
       Entity player = PlayerFactory.BuildPlayer("Borg");
       entities.AddEntity(player);
     }

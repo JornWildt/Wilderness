@@ -13,21 +13,20 @@ namespace Wilderness.Game.Blueprint.Physics
 
     public IEntityRepository Entities { get; set; }
     public IGameLoopEventQueue EventQueue { get; set; }
+    public IPlayersBus Bus { get; set; }
 
     #endregion
 
 
-    public Task Update(GameEnvironment environment)
+    public async Task Update(GameEnvironment environment)
     {
       // FIXME: there must surely be a better timer system than this!
 
       DateTime now = DateTime.Now; ;
       foreach (var item in Entities.GetComponents<TimedComponent>())
       {
-        item.Refresh(Entities, EventQueue, now);
+        await item.Refresh(Entities, EventQueue, Bus, now);
       }
-
-      return Task.CompletedTask;
     }
   }
 }
